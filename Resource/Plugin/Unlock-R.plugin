@@ -1,0 +1,69 @@
+#!name = 解锁限制等(随时失效)
+#!desc = 黑科技 最后更新时间：2023-06-19
+#!openUrl = https://github.com/IC58G/Q
+#!author = IC58G
+#!homepage = https://github.com/IC58G/Q/master/Resource/Plugin
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Loon.png
+
+[MITM]
+hostname = api.gotokeep.com, *kuwo*,*lrts*, bd-api.kuwo.cn, *.music.163.com, spclient.wg.spotify.com, *.mgtv.com, app.bilibili.com, *.caiyunapp.*,*cyapi*, *.caiyunapp.*,*cyapi* api.craft.do, 180.153.*.*,*xima*,*xmcdn*,*.ximalaya.com,*.xmcdn.com,180.153.255.*,180.153.140.*,180.153.250.*,114.80.99.*,114.80.139.237,114.80.161.29,1.62.62.64,51*.com, *.radio.*, 116.136.170*,116.136.15*,123.138.13*,123.138.13*,125.72.138*,116.177.244*,221.178.19.*,218.201.95*,117.187.144*,112.19.1*,58.216.107*,58.221.31*,61.243.13*,58.144.248*,120.92.107*,125.77.176*,27.148*,183.204*,122.224*,60.188.72*,120.220*,120.222*,150.109.91*,*zhihu*,103.41.167*,112.194.67*,119.39.203*,101.207.252*,58.223.164*,27.152.187*,157.255.135*,124.227.186*,113.16.214*,113.96.150*,113.96.181*, *qmxfs*, *dushu*, *.mting.*,m.lrts.me,hapi.mting.info, api2.mubu.com, gentlemanapp*, iosv2.cjapi.papa21.com,*wufan*, *.weread.qq.com, *.aliyundrive.com, *ubestkid*, *qidian.com, appwk.baidu.com, pan.baidu.com
+[Rewrite]
+
+[Script]
+http-response ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/panda.js, requires-body=true, timeout=10, tag=百度网盘
+
+http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/o/bdwk.js, requires-body=true, timeout=10, tag=百度文库
+
+http-response ^http[s]?:\/\/magev6\.if\.qidian\.com\/argus\/api\/v(3|2|4)\/(user\/getaccountpage\?gender|client\/getsplashscreen\?localLabels|subscription\/getunboughtchapterlist).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/QDVIP.js, requires-body=true, timeout=10, tag=起点读书
+http-request ^http[s]?:\/\/magev6\.if\.qidian\.com\/argus\/api\/v(2|4)\/(subscription\/getvipprice|bookcontent\/getvipcontent|.*safegetcontent\?bookId\=[0-9]+&) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/QDTK.js, timeout=10, tag=起点读书
+
+http-response ^https?:\/\/vira\.llsapp\.com\/api\/v\d\/\w+\/\w+$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/llsyd.js, requires-body=true, timeout=10, tag=流利说
+
+http-response ^http[s]?:\/\/.*ubestkid.*(getUserProfile|course|api/v1/featureV2|xtapi/zhuanlan|/api/v1/bv/videoV2).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/beile.js, requires-body=true, timeout=10, tag=贝乐虎启蒙
+
+http-response ^https?:\/\/(api|member)\.aliyundrive\.com script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/aliy.js, requires-body=true, timeout=10, tag=阿里云盘
+
+http-response ^http[s]?:\/\/(i|res)\.weread\.qq.com\/(login|pay\/balance|book\/chapterInfos|user\?userVid\=|upload\?type\=avatar).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/wxds.js, requires-body=true, timeout=10, tag=微信读书
+
+http-response ^http[s]?:\/\/.+user/ios_store_pay_edition.+(check_members_identity_v2|get_member_info) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/wufan.js, requires-body=true, timeout=10, tag=悟饭
+
+http-response ^http[s]?:\/\/gentlemanapp\.lingdu2019.cn\/ios_api\/(my_home\/my_detail|portrait\/goods_detail|publish\/yuepai_detail) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/shens.js, requires-body=true, timeout=10, tag=绅士
+
+http-response ^https:\/\/api2.mubu.com\/v3\/api\/user/* script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/mubu.js, requires-body=true, timeout=10, tag=幕布
+
+http-response ^http[s]?:\/\/((shapi|hapi)(\.mting\.info)|(m\.lrts\.me)|(gzapi\.mting\.info))\/(app|yyting)\/(getVipPageData|userclient\/ClientGetUserInfo|usercenter\/ThirdPartyLogin).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/LanRen.js, requires-body=true, timeout=10, tag=懒人听书
+
+http-response ^http[s]?:\/\/.+dushu.+(v101|v100|program\/v100)\/(content|play\/duration|index|list|userInfo|vipInfo|info|ceiltip|mainList|getMarketInfoByType|share).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/FD.js, requires-body=true, timeout=10, tag=樊登读书
+http-request ^http[s]?:\/\/.+dushu.+(v101\/content|book\/v100\/info|\/play\/duration|\/v100\/index|lilei-talk-orch\/program\/v100\/info).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/FDTK.js, requires-body=true, timeout=10, tag=樊登读书
+
+http-response ^http[s]?:\/\/api\.qmxfs\.com\/v003/user\/queryAccountInfo\.json script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/qmxfs.js, requires-body=true, timeout=10, tag=全民幸福社
+http-request ^http[s]?:\/\/api\.qmxfs\.com\/v003\/subject\/subjectDetail\.json script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/qmxfstk.js, requires-body=true, timeout=10, tag= 全民幸福社
+
+http-response ^http[s]?:\/\/api\.zhihu\.com\/(people\/self|unlimited\/go\/my_card|sku\/reversion_sku_ext).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/ZHVIP.js, requires-body=true, timeout=10, tag=知乎
+http-request http[s]?:\/\/.*zhihu\.(com|cn)\/(appview\/v2\/answer|remix-web\/paid_columns.*manuscript|market\/paid_column|appview\/p|api\/v3\/books|books|market\/paid_magazine).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/ZHTK.js, timeout=10, tag=知乎
+
+http-response http[s]?:\/\/(getway|ytmsout|ytapi).radio.*(/app|/ytsrv/srv/appUser/getUserInfoH5).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/yunt.js, requires-body=true, timeout=10, tag=云听
+
+http-request ^http[s]?:\/\/((.+ximalaya.+)|(.+xmcdn.+))\/mobile-playpage\/track\/v3\/baseInfo\/ts script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/xmty1.js, timeout=10, tag=喜马拉雅
+http-response ^http[s]?:\/\/((.+ximalaya.+)|(.+xmcdn.+)).*\/(playpage\/tabs\/v2|v1\/album\/track\/ts|v1\/album\/price|v2\/homePage|business-vip-presale-mobile-web\/page\/ts|vip\/v1\/recommand|track\/v3\/baseInfo|v1\/module\/data\/dynamic|basicInfo\/dynamic\/ts).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/XMVIPTY.js, requires-body=true, timeout=10, tag=喜马拉雅
+
+http-response ^https:\/\/api\.craft\.do\/auth\/v2\/profile script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/Craft.js, requires-body=true, timeout=10, tag=Craft
+
+http-response ^http[s]?:\/\/biz\.(caiyunapp|cyapi)\.(com|cn)\/v2\/user.*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/caiyun.js, requires-body=true, timeout=10, tag=彩云天气
+
+http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/blbl.js, requires-body=true, timeout=10, tag=哔哩哔哩
+
+http-response ^http[s]?:\/\/.*mgtv\.com/(client\/dynamic_entry|v8\/video\/getSource|GetUserInfo|v3\/module\/list|credits\/url).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/MGTV.js, requires-body=true, timeout=10, tag=芒果TV
+http-response ^http[s]?:\/\/.*mgtv\.com/(client\/dynamic_entry|v8\/video\/getSource|GetUserInfo|v3\/module\/list|credits\/url).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/MGTV.js, requires-body=true, timeout=10, tag=芒果TV
+
+http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/spotify-proto.js, requires-body=true, binary-body-mode=true, timeout=10, tag=Spotify
+http-request ^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/spotify-json.js, timeout=10, tag=Spotify
+
+http-request ^http[s]?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/wyun.js, timeout=10, tag=网易云音乐
+
+http-response ^http[s]:\/\/(.*.kuwo.cn) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/bdyy.js, requires-body=true, timeout=10, tag=波点音乐
+
+http-response ^https?:\/\/.*(kuwo|lrts).*(music\.pay\?ne|\/a\.p|v\d\/api\/(user\/in|pay\/vi)|\w{3}\/v\d\/user\/vi|\w{3}\/spi\/ms|\w{3}\/v\d\/the|\w{3}\/enc\/use) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/kuwo.js, requires-body=true, timeout=10, tag=酷我音乐
+http-request ^https?:\/\/.*(kuwo|lrts).*(music\.pay\?ui) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/kuwo.js, timeout=10, tag=酷我音乐
+
+http-response ^https:\/\/api\.gotokeep\.com script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/keep.js, requires-body=true, timeout=10, tag=keep

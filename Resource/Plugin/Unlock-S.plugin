@@ -1,0 +1,13 @@
+#!name = 解锁限制等(随时失效)
+#!desc = 灰科技 最后更新时间：2023-06-19
+#!openUrl = https://github.com/IC58G/Q
+#!author = IC58G
+#!homepage = https://github.com/IC58G/Q/master/Resource/Plugin
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Loon.png
+
+[MITM]
+hostname = 
+
+[Rewrite]
+
+[Script]

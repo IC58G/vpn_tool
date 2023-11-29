@@ -1,0 +1,67 @@
+DOMAIN-KEYWORD,apple-support.akadns.net
+DOMAIN-KEYWORD,apple.com.akadns.net
+DOMAIN-KEYWORD,apple.com.edgekey.net
+DOMAIN-KEYWORD,testflight
+DOMAIN-KEYWORD,icloud.com.akadns.net
+IP-CIDR,139.178.128.0/18,no-resolve
+IP-CIDR,144.178.0.0/19,no-resolve
+IP-CIDR,144.178.36.0/22,no-resolve
+IP-CIDR,144.178.48.0/20,no-resolve
+IP-CIDR,17.0.0.0/8,no-resolve
+IP-CIDR,192.35.50.0/24,no-resolve
+IP-CIDR,198.183.17.0/24,no-resolve
+IP-CIDR,205.180.175.0/24,no-resolve
+IP-CIDR,63.92.224.0/19,no-resolve
+IP-CIDR,65.199.22.0/23,no-resolve
+USER-AGENT,com.apple.appstored*
+USER-AGENT,Music*
+USER-AGENT,AppleNews*
+USER-AGENT,com.apple.news*
+USER-AGENT,com.apple.trustd*
+USER-AGENT,AppleTV*
+USER-AGENT,com.apple.tv*
+PROCESS-NAME,storedownloadd
+PROCESS-NAME,com.apple.geod
+PROCESS-NAME,Music
+PROCESS-NAME,News
+PROCESS-NAME,LookupViewService
+PROCESS-NAME,TV
+HOST, appleid.apple.com
+HOST, appleid.cdn-apple.com
+HOST, idmsa.apple.com
+HOST, gsa.apple.com
+HOST, appleid.apple.com
+HOST, appleid.cdn-apple.com
+HOST, idmsa.apple.com
+HOST, gsa.apple.com
+HOST-SUFFIX, push.apple.com
+HOST, identity.apple.com
+IP-CIDR, 17.249.0.0/16
+IP-CIDR, 17.252.0.0/16
+IP-CIDR, 17.57.144.0/22
+IP-CIDR, 17.188.128.0/18
+IP-CIDR, 17.188.20.0/23
+IP6-CIDR, 2620:149:a44::/48
+IP6-CIDR, 2403:300:a42::/48
+IP6-CIDR, 2403:300:a51::/48
+IP6-CIDR, 2a01:b740:a42::/48
+HOST-SUFFIX, itunes.apple.com
+HOST-SUFFIX, apps.apple.com
+HOST-SUFFIX, mzstatic.com
+HOST, itunes.apple.com
+HOST, ppq.apple.com
+HOST-SUFFIX, apple-cloudkit.com
+HOST-SUFFIX, apple-livephotoskit.com
+HOST-SUFFIX, apzones.com
+HOST-SUFFIX, cdn-apple.com
+HOST-SUFFIX, gc.apple.com
+HOST-SUFFIX, icloud.com
+HOST-SUFFIX, icloud.com.cn
+HOST-SUFFIX, icloud.apple.com
+HOST-SUFFIX, icloud-content.com
+HOST-SUFFIX, iwork.apple.com
+HOST, mask.icloud.com
+HOST, mask-h2.icloud.com
+HOST, mask-api.icloud.com
+HOST-SUFFIX, apzones.com
+HOST-SUFFIX, icloud.com.cn
