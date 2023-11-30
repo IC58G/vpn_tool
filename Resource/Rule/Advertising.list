@@ -489,5 +489,3 @@ URL-REGEX,^https?:\/\/xyst\.yuanfudao\.com\/iphone\/splashesV\d
 URL-REGEX,^https?:\/\/xyz\.cnki\.net\/resourcev7\/api\/manualpush\/SlidsList$
 URL-REGEX,^https?:\/\/yxyapi\d\.drcuiyutao\.com\/yxy-api-gateway\/api\/json\/advert\/
 AND,((USER-AGENT,Frodo*),(DOMAIN,119.29.29.29))
-host, amdc.m.taobao.com
-DOMAIN, api-adservices.apple.com
