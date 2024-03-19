@@ -1,0 +1,413 @@
+# Sing-Box 简易配置 by ic58n 24/03/18
+# 识别号：1.8.9-1-cn
+#
+#
+#
+{
+  "log": {
+    "disabled": true,
+    "level": "debug",
+    "timestamp": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "cache_id": "my_profile2",
+      "store_fakeip": true
+    },
+    "clash_api": {
+      "external_ui": "ui",
+      "external_controller": "127.0.0.1:9090",
+      "external_ui_download_detour": "direct",
+      "default_mode": "rule",
+      "external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip"
+    }
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxy",
+        "address": "9.9.9.9",
+        "detour": "proxy"
+      },
+      {
+        "tag": "local",
+        "address": "119.29.29.29",
+        "detour": "direct"
+      },
+      {
+        "tag": "block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "rule_set": "geosite-category-ads-all",
+        "server": "block"
+      },
+      {
+        "outbound": "any",
+        "server": "local",
+        "disable_cache": true
+      },
+      {
+        "domain_suffix": [
+          ".cn"
+        ],
+        "server": "local"
+      },
+      {
+        "domain_keyword": [
+          "-cn"
+        ],
+        "server": "local"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "local"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "local"
+      },
+      {
+        "clash_mode": "global",
+        "server": "proxy"
+      }
+    ],
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "inet4_address": "172.19.0.1/30",
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": true,
+      "sniff": true,
+      "endpoint_independent_nat": false,
+      "stack": "system",
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      }
+    },
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "sniff": true,
+      "users": []
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "节点",
+      "type": "selector",
+      "outbounds": [
+        "SV1_vless",
+        "SV2_vless",
+        "SV3_vless",
+        "SV4_vless",
+        "WARP-Team"
+      ]
+    },
+    {
+      "tag": "节点选择",
+      "type": "selector",
+      "outbounds": [
+        "手动选择",
+        "自动选择"
+      ]
+    },
+    {
+      "tag": "手动选择",
+      "type": "selector",
+      "outbounds": [
+        "SV1_vless",
+        "SV2_vless",
+        "SV3_vless",
+        "SV4_vless",
+        "WARP-Team"
+      ]
+    },
+    {
+      "tag": "广告屏蔽",
+      "type": "selector",
+      "outbounds": [
+        "block"
+      ]
+    },
+    {
+      "tag": "人工智能",
+      "type": "selector",
+      "outbounds": [
+        "SV1_vless",
+        "SV2_vless",
+        "SV3_vless",
+        "SV4_vless",
+        "WARP-Team"
+      ]
+    },
+    {
+      "tag": " Apple服务",
+      "type": "selector",
+      "outbounds": [
+        "国内服务",
+        "国际服务"
+      ]
+    },
+    {
+      "tag": "国内服务",
+      "type": "selector",
+      "outbounds": [
+        "direct"
+      ]
+    },
+    {
+      "tag": "地理位置",
+      "type": "selector",
+      "outbounds": [
+        "国内服务",
+        "国际服务"
+      ]
+    },
+    {
+      "tag": "国际服务",
+      "type": "selector",
+      "outbounds": [
+        "手动选择",
+        "自动选择"
+      ]
+    },
+    {
+      "tag": "国际媒体",
+      "type": "selector",
+      "outbounds": [
+        "国际服务"
+      ]
+    },
+    {
+      "tag": "国内媒体",
+      "type": "selector",
+      "outbounds": [
+        "国内服务"
+      ]
+    },
+    {
+      "tag": "港台番剧",
+      "type": "selector",
+      "outbounds": [
+        "SV1_vless",
+        "SV2_vless",
+        "SV3_vless",
+        "SV4_vless",
+        "WARP-Team"
+      ]
+    },
+    {
+      "tag": "自动选择",
+      "type": "urltest",
+      "outbounds": [
+        "SV1_vless",
+        "SV2_vless",
+        "SV3_vless",
+        "SV4_vless",
+        "WARP-Team"
+      ],
+      "url": "http://www.un.org/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "tag": "SV1_vless",
+      "type": "vless",
+      "server": "104.18.188.233",
+      "server_port": 2052,
+      "uuid": "7a74b997-3a7f-49fd-85a5-fb371374d4aa",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "helloworld.jiaossn.workers.dev"
+        },
+        "path": "/",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "SV2_vless",
+      "type": "vless",
+      "server": "www.udemy.com",
+      "server_port": 80,
+      "uuid": "74573a11-ca09-403f-8976-39472ea76588",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "hiworld.jiaossn.workers.dev"
+        },
+        "path": "/",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "SV3_vless",
+      "type": "vless",
+      "server": "www.visa.com.tw",
+      "server_port": 80,
+      "uuid": "d342d11e-d424-4283-b33e-524ab1f0ada4",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "111.bwvd9gh5.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "SV4_vless",
+      "type": "vless",
+      "server": "104.18.29.94",
+      "server_port": 80,
+      "uuid": "d342d11e-d424-4283-b33e-524ab1f0ada4",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "111.bwvd9gh5.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 8319
+      }
+    },
+    {
+      "tag": "WARP-Team",
+      "type": "wireguard",
+      "server": "188.114.97.70",
+      "server_port": 3581,
+      "local_address": [
+        "172.16.0.2/32",
+        "2606:4700:110:8929:be87:3a56:863:90f7/32"
+      ],
+      "private_key": "6KUgtHPhHCR4gMEweOiIFm2FEY1/VdjidIy6xkDrJVY=",
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": [
+        89,
+        213,
+        73
+      ],
+      "peers": [
+        {
+          "server": "188.114.97.70",
+          "server_port": 3581,
+          "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+          "allowed_ips": [
+            "0.0.0.0/0",
+            "::/0"
+          ],
+          "reserved": [
+            89,
+            213,
+            73
+          ]
+        }
+      ]
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "final": "国际服务",
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "network": "udp",
+        "port": 443,
+        "outbound": "广告屏蔽"
+      },
+      {
+        "domain_suffix": [
+          ".cn"
+        ],
+        "outbound": "国内服务"
+      },
+      {
+        "domain_keyword": [
+          "-cn"
+        ],
+        "outbound": "国内服务"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "outbound": "广告屏蔽"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "国内服务"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "节点"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "国内服务"
+      },
+      {
+        "rule_set": "geoip-cn",
+        "outbound": "国内服务"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "outbound": "国内服务"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "自动选择"
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "download_detour": "自动选择"
+      },
+      {
+        "tag": "geosite-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+        "download_detour": "自动选择"
+      }
+    ]
+  }
+}

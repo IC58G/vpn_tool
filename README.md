@@ -3,7 +3,7 @@
 # vpn_tool
 
 
-# 2024/02/06
+# 2024/03/19
 
 ---------------------------
 
@@ -20,6 +20,10 @@
 ## Egern (ios)
 
 ### https://raw.githubusercontent.com/IC58G/vpn_tool/main/Tool/Egern/Config/Egern_2024-cn.yaml
+
+## Sing-Box (ios / mac)
+
+### https://raw.githubusercontent.com/IC58G/vpn_tool/main/Tool/Sing-Box/Config/Sing-Box_2024-cn.json
 
 
 
@@ -63,6 +67,8 @@
 | Raycast Pro   |        |                                                |
 
 ---------------------------
+###### 0x3 2024-03-19 增加 Sing-Box 配置
+
 ###### 0x2 2024-02-06 增加 Egern 配置 MacApp激活服务 修正配置参数
 
 ###### 0x1 2023-12-02 增加 surge loon 配置 优化全局内容 剔除部分dns解析服务器
