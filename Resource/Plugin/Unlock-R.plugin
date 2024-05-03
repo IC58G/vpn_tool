@@ -1,69 +1,126 @@
-#!name = 解锁限制等(随时失效)
-#!desc = 黑科技 最后更新时间：2023-06-19
-#!openUrl = https://github.com/IC58G/Q
+#!name = 黑科技
+#!desc = 解锁限制等(随时失效)
+#!openUrl = https://github.com/IC58G/vpn_tool
 #!author = IC58G
-#!homepage = https://github.com/IC58G/Q/master/Resource/Plugin
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Loon.png
-
-[MITM]
-hostname = api.gotokeep.com, *kuwo*,*lrts*, bd-api.kuwo.cn, *.music.163.com, spclient.wg.spotify.com, *.mgtv.com, app.bilibili.com, *.caiyunapp.*,*cyapi*, *.caiyunapp.*,*cyapi* api.craft.do, 180.153.*.*,*xima*,*xmcdn*,*.ximalaya.com,*.xmcdn.com,180.153.255.*,180.153.140.*,180.153.250.*,114.80.99.*,114.80.139.237,114.80.161.29,1.62.62.64,51*.com, *.radio.*, 116.136.170*,116.136.15*,123.138.13*,123.138.13*,125.72.138*,116.177.244*,221.178.19.*,218.201.95*,117.187.144*,112.19.1*,58.216.107*,58.221.31*,61.243.13*,58.144.248*,120.92.107*,125.77.176*,27.148*,183.204*,122.224*,60.188.72*,120.220*,120.222*,150.109.91*,*zhihu*,103.41.167*,112.194.67*,119.39.203*,101.207.252*,58.223.164*,27.152.187*,157.255.135*,124.227.186*,113.16.214*,113.96.150*,113.96.181*, *qmxfs*, *dushu*, *.mting.*,m.lrts.me,hapi.mting.info, api2.mubu.com, gentlemanapp*, iosv2.cjapi.papa21.com,*wufan*, *.weread.qq.com, *.aliyundrive.com, *ubestkid*, *qidian.com, appwk.baidu.com, pan.baidu.com
+#!homepage = https://github.com/IC58G/vpn_tool/tree/main/Resource/Plugin
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Loon.png
+#!date = 2023-05-02
+# > ──────────────────────────────────────────────────分───────────────────割─────────────────────线───────────────────────────────────────────────────────────────────────────────────────
 [Rewrite]
+# > 去广告
+^https?:\/\/ad.*\.xima.*\.com - reject
+# > 莫名收集
+^https?:\/\/.+\.xima.*\.com\/collector\/xl\/v\d - reject
+# > 位置信息
+^https?:\/\/.+\.xima.*\.com\/mobile\/discovery\/v\d\/location - reject
 
 [Script]
-http-response ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/panda.js, requires-body=true, timeout=10, tag=百度网盘
+# > 顶部tab优化
+http-response ^https?:\/\/.+\.xima.*\.com\/discovery-category\/customCategories script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/xmly.vip.js, requires-body=true, timeout=60, tag=xmly.vip
 
-http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/o/bdwk.js, requires-body=true, timeout=10, tag=百度文库
+# > 详情页底部推荐广告
+http-response ^https?:\/\/.+\.xima.*\.com\/mobile-playpage\/playpage\/recommendContentV2 script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/xmly.vip.js, requires-body=true, timeout=60, tag=xmly.vip
 
-http-response ^http[s]?:\/\/magev6\.if\.qidian\.com\/argus\/api\/v(3|2|4)\/(user\/getaccountpage\?gender|client\/getsplashscreen\?localLabels|subscription\/getunboughtchapterlist).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/QDVIP.js, requires-body=true, timeout=10, tag=起点读书
-http-request ^http[s]?:\/\/magev6\.if\.qidian\.com\/argus\/api\/v(2|4)\/(subscription\/getvipprice|bookcontent\/getvipcontent|.*safegetcontent\?bookId\=[0-9]+&) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/QDTK.js, timeout=10, tag=起点读书
+# > 首页横幅
+http-response ^https?:\/\/.+\.xima.*\.com\/focus-mobile\/focusPic script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/xmly.vip.js, requires-body=true, timeout=60, tag=xmly.vip
 
-http-response ^https?:\/\/vira\.llsapp\.com\/api\/v\d\/\w+\/\w+$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/llsyd.js, requires-body=true, timeout=10, tag=流利说
+# > 顶部banner过滤广告
+http-response ^https?:\/\/.+\.xima.*\.com\/mobile-category\/v1\/category\/page\/queryCategoryPageData script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/xmly.vip.js, requires-body=true, timeout=60, tag=xmly.vip
 
-http-response ^http[s]?:\/\/.*ubestkid.*(getUserProfile|course|api/v1/featureV2|xtapi/zhuanlan|/api/v1/bv/videoV2).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/beile.js, requires-body=true, timeout=10, tag=贝乐虎启蒙
+# > 个人中心
+http-response ^https?:\/\/.+\.xima.*\.com\/mobile-user\/v2\/homePage script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/xmly.vip.js, requires-body=true, timeout=60, tag=xmly.vip
 
-http-response ^https?:\/\/(api|member)\.aliyundrive\.com script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/aliy.js, requires-body=true, timeout=10, tag=阿里云盘
+# > 列表解锁
+http-response ^https?:\/\/.+\.xima.*\.com\/(product\/detail\/v1|mobile\/v1\/album\/track) script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/xmly.vip.js, requires-body=true, timeout=60, tag=xmly.vip
 
-http-response ^http[s]?:\/\/(i|res)\.weread\.qq.com\/(login|pay\/balance|book\/chapterInfos|user\?userVid\=|upload\?type\=avatar).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/wxds.js, requires-body=true, timeout=10, tag=微信读书
+# > 音质解锁
+http-response ^https?:\/\/.+\.xima.*\.com\/mobile-playpage\/playpage\/track\/qualityAndEffect script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/xmly.vip.js, requires-body=true, timeout=60, tag=xmly.vip
 
-http-response ^http[s]?:\/\/.+user/ios_store_pay_edition.+(check_members_identity_v2|get_member_info) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/wufan.js, requires-body=true, timeout=10, tag=悟饭
+# > 播放按钮解锁
+http-response ^https?:\/\/.+\.xima.*\.com\/mobile-playpage\/playpage\/tabs\/v2 script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/xmly.vip.js, requires-body=true, timeout=60, tag=xmly.vip
 
-http-response ^http[s]?:\/\/gentlemanapp\.lingdu2019.cn\/ios_api\/(my_home\/my_detail|portrait\/goods_detail|publish\/yuepai_detail) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/shens.js, requires-body=true, timeout=10, tag=绅士
+# > 详情页会员媒体解锁（不包含vip儿童、付费）
+http-response ^https?:\/\/.+\.xima.*\.com\/mobile-playpage\/track\/v\d\/\w+\/ts-\d+ script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/xmly.vip.js, requires-body=true, timeout=60, tag=xmly.vip
 
-http-response ^https:\/\/api2.mubu.com\/v3\/api\/user/* script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/mubu.js, requires-body=true, timeout=10, tag=幕布
+[MITM]
+hostname = mobile*.xima*.com, ad*.ximalaya.com, *.xima*.com, 61.172.194.*, 180.153.*.*, 180.153.255.*, 180.153.140.*, 180.153.250.*, 114.80.99.*, 114.80.139.2*, 61.162.174.*, 119.188.123.*, 59.83.227.*, 120.222.238.146, 120.223.241.*, 120.223.252.*, 120.222.152.124, 114.80.161.29, 1.62.62.64, 1.194.255.171, 23.236.99.89, 36.99.200.135, 42.81.4.198, 42.81.26.128, 42.81.120.58, 43.132.80.77, 43.132.83.175, 43.132.84.11, 43.152.24.12, 43.152.24.18, 43.152.25.127, 43.152.29.38, 43.175.16.34, 43.175.22.25, 43.175.44.15, 49.7.69.197, 49.51.224.95, 101.33.11.32, 101.33.11.106, 101.33.20.34, 101.33.29.110, 103.105.60.99, 140.249.84.135, 140.249.85.189, 150.109.90.80, 150.109.91.35, 150.138.47.94, 150.138.136.145, 203.205.136.87, 203.205.136.100, 203.205.136.102, 203.205.136.159, 203.205.137.27, 203.205.137.87, 203.205.137.241, 203.205.250.111, 203.205.250.113, 211.152.137.25
+# > ──────────────────────────────────────────────────分───────────────────割─────────────────────线───────────────────────────────────────────────────────────────────────────────────────
+[Script]
+#^https?:\/\/lv-biz-api-\w+\.ulikecam\.com\/commerce\/v1\/(subscription\/user_info|purchase\/draft_unlock|effect\/check_effects) url script-analyze-echo-response http://192.168.10.3:5501/VIP/Scripts/jianying/source/jianying.vip.js
+http-request ^https?:\/\/lv-biz-api-\w+\.ulikecam\.com\/commerce\/v1\/(subscription\/user_info|purchase\/draft_unlock|effect\/check_effects) script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/jianying.vip.js, requires-body=true, timeout=60, tag=jianying.vip
 
-http-response ^http[s]?:\/\/((shapi|hapi)(\.mting\.info)|(m\.lrts\.me)|(gzapi\.mting\.info))\/(app|yyting)\/(getVipPageData|userclient\/ClientGetUserInfo|usercenter\/ThirdPartyLogin).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/LanRen.js, requires-body=true, timeout=10, tag=懒人听书
+[MITM]
+hostname = api3-lq.faceu.mobi, lv-api-lq.ulikecam.com, lv-api-sinfonlinea.ulikecam.com, lv-biz-api-sinfonlinea.ulikecam.com, lv*api*.ulikecam.com
+# > ──────────────────────────────────────────────────分───────────────────割─────────────────────线───────────────────────────────────────────────────────────────────────────────────────
+[Script]
+http-request ^https?:\/\/newdrugs\.dxy\.cn\/app\/(clinical-decision\/v3\/content|user\/(pro\/stat|pro\/old-pro-discount\/check)|guide\/pdf\/download-url\/\d+) script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/yyzs.vip.js, requires-body=true, timeout=60, tag=yyzs.vip
 
-http-response ^http[s]?:\/\/.+dushu.+(v101|v100|program\/v100)\/(content|play\/duration|index|list|userInfo|vipInfo|info|ceiltip|mainList|getMarketInfoByType|share).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/FD.js, requires-body=true, timeout=10, tag=樊登读书
-http-request ^http[s]?:\/\/.+dushu.+(v101\/content|book\/v100\/info|\/play\/duration|\/v100\/index|lilei-talk-orch\/program\/v100\/info).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/FDTK.js, requires-body=true, timeout=10, tag=樊登读书
+http-response ^https?:\/\/newdrugs\.dxy\.cn\/app\/user\/basic-info\? script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/yyzs.vip.js, requires-body=true, timeout=60, tag=yyzs.vip
 
-http-response ^http[s]?:\/\/api\.qmxfs\.com\/v003/user\/queryAccountInfo\.json script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/qmxfs.js, requires-body=true, timeout=10, tag=全民幸福社
-http-request ^http[s]?:\/\/api\.qmxfs\.com\/v003\/subject\/subjectDetail\.json script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/qmxfstk.js, requires-body=true, timeout=10, tag= 全民幸福社
+[MITM]
+hostname = newdrugs.dxy.cn
+# > ──────────────────────────────────────────────────分───────────────────割─────────────────────线───────────────────────────────────────────────────────────────────────────────────────
+[Rewrite]
+# 首页弹出框
+^https:\/\/msgapi\.caixin\.com\/msg_api\/annmsg\/annlist - reject-dict
+# 广告样式
+^https:\/\/gateway\.caixin\.com\/api\/app-api\/cxAdInfo\/selectIndexAdInfo - reject-dict
+^https:\/\/mappsv5\.caixin\.com\/channelv5\/article_ad_ios_info\.json - reject-dict
+# 文章中间推广,文章底部相关阅读
+^https:\/\/gg\.caixin\.com\/s\?z=caixin&slot=\d+ - reject-dict
+# 财新数据通
+^https:\/\/entities\.caixin\.com\/api\/(dataplus\/promotionHints|public\/push\/appIndex|public\/recommendNews) - reject-dict
 
-http-response ^http[s]?:\/\/api\.zhihu\.com\/(people\/self|unlimited\/go\/my_card|sku\/reversion_sku_ext).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/ZHVIP.js, requires-body=true, timeout=10, tag=知乎
-http-request http[s]?:\/\/.*zhihu\.(com|cn)\/(appview\/v2\/answer|remix-web\/paid_columns.*manuscript|market\/paid_column|appview\/p|api\/v3\/books|books|market\/paid_magazine).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/ZHTK.js, timeout=10, tag=知乎
+[Script]
+# 开屏广告,文章顶部banner
+http-response ^https:\/\/gg\.caixin\.com\/s\?z=caixin&op=\d script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-response http[s]?:\/\/(getway|ytmsout|ytapi).radio.*(/app|/ytsrv/srv/appUser/getUserInfoH5).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/yunt.js, requires-body=true, timeout=10, tag=云听
+http-response ^https:\/\/mappsv5\.caixin\.com\/articlev5\/\d+\/\d+\.json script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-request ^http[s]?:\/\/((.+ximalaya.+)|(.+xmcdn.+))\/mobile-playpage\/track\/v3\/baseInfo\/ts script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/xmty1.js, timeout=10, tag=喜马拉雅
-http-response ^http[s]?:\/\/((.+ximalaya.+)|(.+xmcdn.+)).*\/(playpage\/tabs\/v2|v1\/album\/track\/ts|v1\/album\/price|v2\/homePage|business-vip-presale-mobile-web\/page\/ts|vip\/v1\/recommand|track\/v3\/baseInfo|v1\/module\/data\/dynamic|basicInfo\/dynamic\/ts).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/XMVIPTY.js, requires-body=true, timeout=10, tag=喜马拉雅
+http-response ^https:\/\/mapps?v5\.caixin\.com\/(channelv5\/list|\/?index_page_v5\/)\w+ script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-response ^https:\/\/api\.craft\.do\/auth\/v2\/profile script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/Craft.js, requires-body=true, timeout=10, tag=Craft
+# 财新fm
+http-response ^https:\/\/gateway\.caixin\.com\/api\/app-content\/fm\/index\/list\? script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-response ^http[s]?:\/\/biz\.(caiyunapp|cyapi)\.(com|cn)\/v2\/user.*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/caiyun.js, requires-body=true, timeout=10, tag=彩云天气
+http-response ^https:\/\/entities\.caixin\.com\/api\/dataplus\/columns script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/blbl.js, requires-body=true, timeout=10, tag=哔哩哔哩
+# 解锁会员
+http-request ^https:\/\/gateway\.caixin\.com\/api\/app-api\/auth\/(groupImageValidate|validate|validateAudioAuth) script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-response ^http[s]?:\/\/.*mgtv\.com/(client\/dynamic_entry|v8\/video\/getSource|GetUserInfo|v3\/module\/list|credits\/url).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/MGTV.js, requires-body=true, timeout=10, tag=芒果TV
-http-response ^http[s]?:\/\/.*mgtv\.com/(client\/dynamic_entry|v8\/video\/getSource|GetUserInfo|v3\/module\/list|credits\/url).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/MGTV.js, requires-body=true, timeout=10, tag=芒果TV
+# 个人中心
+http-response ^https?:\/\/gateway\.caixin\.com\/api\/app-api\/userAuth\/getUserPowerCard script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/spotify-proto.js, requires-body=true, binary-body-mode=true, timeout=10, tag=Spotify
-http-request ^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/spotify-json.js, timeout=10, tag=Spotify
+# 数据通pro => 财新数据 => 数据工具/深度专题
+http-response https?:\/\/deepview-dynamic\.caixin\.com\/api\/topic\/config\/(topic|event) script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-request ^http[s]?:\/\/.+music.+(player\/url|playlist|entrance|\/eapi\/search\/).*$ script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/wyun.js, timeout=10, tag=网易云音乐
+# 数据通pro => 财新指数
+http-response ^https?:\/\/cxdata.caixin.com\/api\/public\/auth\/index script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-response ^http[s]:\/\/(.*.kuwo.cn) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/bdyy.js, requires-body=true, timeout=10, tag=波点音乐
+# 数据通pro => 经济数据 => 中国、世界
+http-request ^https?:\/\/ceic.caixin.com\/api\/data\/layout\?pid= script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-response ^https?:\/\/.*(kuwo|lrts).*(music\.pay\?ne|\/a\.p|v\d\/api\/(user\/in|pay\/vi)|\w{3}\/v\d\/user\/vi|\w{3}\/spi\/ms|\w{3}\/v\d\/the|\w{3}\/enc\/use) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/kuwo.js, requires-body=true, timeout=10, tag=酷我音乐
-http-request ^https?:\/\/.*(kuwo|lrts).*(music\.pay\?ui) script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/kuwo.js, timeout=10, tag=酷我音乐
+# 数据通pro => 经济数据 => 其他国家
+http-request ^https?:\/\/ceic.caixin.com\/api\/data\/search\?keyword= script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
 
-http-response ^https:\/\/api\.gotokeep\.com script-path=https://raw.githubusercontent.com/IC58G/Q/master/Resource/Script/a/keep.js, requires-body=true, timeout=10, tag=keep
+# 数据通pro => 经济数据 => CEIC财新数据、精选资讯
+http-request ^https?:\/\/ceic.caixin.com\/api\/data\/\w+ script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
+
+# 数据通pro => 投资机会
+http-request ^https?:\/\/cxdata.caixin.com\/opp2\/(subjects|opportunities)\/\w+ script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
+
+# 数据通pro => 企业库
+http-request ^https?:\/\/entities\.caixin\.com\/api\/companies\/\d+\/(partners|investments|staffs|changerecs|develophis) script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
+
+# 数据通pro => 人物库
+http-request ^https?:\/\/entities\.caixin\.com\/api\/persons\/\d+\/(parship|auth_companys|history) script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/caixin.vip.js, requires-body=true, timeout=60, tag=caixin.vip
+
+[MITM]
+hostname = entities.caixin.com, g*.caixin.com, mapps*.caixin.com, ceic.caixin.com, cxdata.caixin.com, deepview-dynamic.caixin.com
+# > ──────────────────────────────────────────────────分───────────────────割─────────────────────线───────────────────────────────────────────────────────────────────────────────────────
+[Script]
+# ^https?:\/\/api\.qwdjapp\.com\/(auth\/login\/mobile|user\/personal\/information|app\/drama\/page) url script-response-body http://192.168.10.4:5501/VIP/Scripts/rrtv/rrtv.vip.js	#^https?:\/\/api\.(qwdjapp.com|qwapp.top)\/(user\/personal\/information|app\/drama\/page) url script-response-body http://192.168.68.166:5501/VIP/Scripts/rrtv/source/rrtv.vip.js
+http-response ^https?:\/\/api\.(qwdjapp.com|qwapp.top|rrtv.mobi)\/(auth\/login\/mobile|user\/personal\/information|app\/drama\/page) script-path=https://gist.githubusercontent.com/Yuheng0101/71bf245d9cf06f4dde9465554697ea9c/raw/rrtv.vip.js, requires-body=true, timeout=60, tag=rrtv.vip
+
+[MITM]
+hostname = api.qwdjapp.com, api.qwapp.top, api.rrtv.mobi
+# > ──────────────────────────────────────────────────分───────────────────割─────────────────────线───────────────────────────────────────────────────────────────────────────────────────
