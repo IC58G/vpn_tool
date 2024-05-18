@@ -4,13 +4,13 @@
 #!author = 食用前必做操作
 #!homepage = https://t.me/c/2107874396/10
 #!icon = https://raw.githubusercontent.com/IC58G/vpn_tool/main/Resource/Icon/yqc-premium.png
-#!date = 2024-04-27
+#!date = 2024-05-18
 
 [Rule]
 DOMAIN, gist.githubusercontent.com, PROXY
 
 [Script]
-http-request ^https?:\/\/xn--ck8h\.com script-path = https://gist.githubusercontent.com/IC58G/b6bedc14d0e8d17bac70a75a7e45edd3/raw/ed1567b04e3d9731ff1733c765ae4e46ccc08811/gallery.js, requires-body = true, timeout = 120, tag = Loon yqc-premium专享 插件仓库
+http-request ^https?:\/\/xn--ck8h\.com script-path = https://gist.githubusercontent.com/IC58G/b6bedc14d0e8d17bac70a75a7e45edd3/raw/2f514928c864f168015ed8bc130c3fc1f7e2548b/gallery.js, requires-body = true, timeout = 120, tag = Loon yqc-premium专享 插件仓库
 
 [Mitm]
 hostname = xn--ck8h.com
