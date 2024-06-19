@@ -21,3 +21,6 @@ DOMAIN-KEYWORD,zhihu
 
 # 字节跳动系列
 DOMAIN-KEYWORD,-normal
+
+# 微信
+DOMAIN-SUFFIX,szextshort.weixin
