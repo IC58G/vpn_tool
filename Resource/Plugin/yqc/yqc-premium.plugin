@@ -10,7 +10,7 @@
 DOMAIN, gist.githubusercontent.com, PROXY
 
 [Script]
-http-request ^https?:\/\/xn--ck8h\.com script-path = https://gist.githubusercontent.com/IC58G/b6bedc14d0e8d17bac70a75a7e45edd3/raw/2f514928c864f168015ed8bc130c3fc1f7e2548b/gallery.js, requires-body = true, timeout = 120, tag = Loon yqc-premium专享 插件仓库
+http-request ^https?:\/\/xn--ck8h\.com script-path = https://gist.githubusercontent.com/IC58G/b6bedc14d0e8d17bac70a75a7e45edd3/raw/gallery.js, requires-body = true, timeout = 120, tag = Loon yqc-premium专享 插件仓库
 
 [Mitm]
 hostname = xn--ck8h.com
