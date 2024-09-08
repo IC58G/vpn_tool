@@ -1,19 +1,11 @@
-# Egern 简易配置 by ic58n 24/02/06
-# 识别号：1.20.0-354
+# Egern 简易配置 by ic58n 24/09/08
+# 识别号：1.24.0-412
 # 
 #
 #
-hide_vpn_icon: true
-geoip_db_url: https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb
-asn_db_url: https://github.com/P3TERX/GeoLite.mmdb
-dns_servers:
-- 8.8.8.8
-- 1.1.1.1
-- 119.29.29.29
-- 223.5.5.5
-- 114.114.114.114
-- 101.101.101.101
-- 101.6.6.6
+proxy_latency_test_url: http://www.un.org/generate_204
+direct_latency_test_url: http://www.gov.cn/generate_204
+dns: 
 policy_groups:
 - select:
     name: 节点选择
@@ -28,8 +20,8 @@ policy_groups:
     name: 手动选择
     type: select
     urls:
-    - ti zi
-    filter: ^((?!(账号|试用|流量|网址|最新|域名|剩余|更换|套餐)).)*$
+    - 订阅地址
+    filter: ^((?!(账号|试用|流量|官网|失联|网址|最新|域名|剩余|到期|更换|过滤|套餐|返利|电报|群组)).)*$
     icon: https://raw.githubusercontent.com/IC58G/vpn_tool/main/Resource/Icon/other/Cylink.png
 - select:
     name: 广告屏蔽
@@ -91,7 +83,7 @@ policy_groups:
     type: auto_test
     urls:
     - 订阅地址
-    filter: ^((?!(账号|试用|流量|网址|最新|域名|剩余|更换|套餐)).)*$
+    filter: ^((?!(账号|试用|流量|官网|失联|网址|最新|域名|剩余|到期|更换|过滤|套餐|返利|电报|群组)).)*$
     interval: 600
     icon: https://raw.githubusercontent.com/IC58G/vpn_tool/main/Resource/Icon/other/Ark.png
 - external:
@@ -99,7 +91,7 @@ policy_groups:
     type: load_balance
     urls:
     - 订阅地址
-    filter: ^((?!(账号|试用|流量|网址|最新|域名|剩余|更换|套餐)).)*$
+    filter: ^((?!(账号|试用|流量|官网|失联|网址|最新|域名|剩余|到期|更换|过滤|套餐|返利|电报|群组)).)*$
     icon: https://raw.githubusercontent.com/IC58G/vpn_tool/main/Resource/Icon/other/ASN.png
 rules:
 - rule_set:
@@ -129,9 +121,6 @@ rules:
 - rule_set:
     match: https://raw.githubusercontent.com/IC58G/vpn_tool/main/Resource/Rule/StreamingSE.list
     policy: 港台番剧
-- geoip:
-    match: CN
-    policy: 国内服务
 - default:
     policy: 国际服务
 mitm:
