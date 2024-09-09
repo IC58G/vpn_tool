@@ -2,7 +2,9 @@
 
 
 # 哔哩哔哩
-DOMAIN-KEYWORD,bili
+DOMAIN-SUFFIX,bilibili.com
+DOMAIN-SUFFIX,biliapi.net
+DOMAIN-SUFFIX,bilivideo.com
 IP-CIDR,203.107.1.0/24,no-resolve
 
 # 快手
