@@ -1,23 +1,26 @@
 # pcdn
-DOMAIN-SUFFIX,mcdn.bilivideo.cn
-DOMAIN-SUFFIX,pcdn.xmcdn.com
-DOMAIN,szbdyd.com
-DOMAIN-KEYWORD,-hcdn.
-DOMAIN-SUFFIX,bsccdn.net
-DOMAIN-KEYWORD,p2p-
-DOMAIN-SUFFIX,kuiniuca.com
-DOMAIN-SUFFIX,onethingpcs.com
-DOMAIN-KEYWORD,p2p.
-DOMAIN-KEYWORD,p2p
-DOMAIN-KEYWORD,pcdn.
-DOMAIN-SUFFIX,pkoplink.com
-DOMAIN-SUFFIX,saxysec.com
-DOMAIN-SUFFIX,stun.douyucdn.cn
-DOMAIN-SUFFIX,stun.hitv.com
-DOMAIN-SUFFIX,stun1.douyucdn.cn
-DOMAIN-SUFFIX,szbdyd.com
-DOMAIN-SUFFIX,uhabo.com
-DOMAIN-SUFFIX,xycdn.com
+DOMAIN,mcdn.bilivideo.cn		
+DOMAIN,p2p.huya.com		
+DOMAIN,pcdn.xmcdn.com		
+DOMAIN,pcdn.yximgs.com		
+DOMAIN,stun.douyucdn.cn		
+DOMAIN,stun.hitv.com		
+DOMAIN,stun1.douyucdn.cn		
+DOMAIN-KEYWORD,-hcdn.		
+DOMAIN-KEYWORD,p2p		
+DOMAIN-KEYWORD,p2p-		
+DOMAIN-KEYWORD,p2p.		
+DOMAIN-KEYWORD,pcdn.		
+DOMAIN-SUFFIX,bsccdn.net		
+DOMAIN-SUFFIX,gjfzpt.cn		
+DOMAIN-SUFFIX,jomodns.cn		
+DOMAIN-SUFFIX,kuiniuca.com		
+DOMAIN-SUFFIX,onethingpcs.com		
+DOMAIN-SUFFIX,pkoplink.com		
+DOMAIN-SUFFIX,saxysec.com		
+DOMAIN-SUFFIX,szbdyd.com		
+DOMAIN-SUFFIX,uhabo.com		
+DOMAIN-SUFFIX,xycdn.com		
 
 # 屏蔽运营商获取本机号码自动登录
 # 中国移动
@@ -40,8 +43,10 @@ DOMAIN,enrichgw.10010.com
  
 # 中国电信
 DOMAIN-SUFFIX,id6.me
-DOMAIN,pen.e.189.cn
+DOMAIN,open.e.189.cn
  
 #sdk
 DOMAIN-SUFFIX,mob.com
 DOMAIN,ye.dun.163yun.com
+DOMAIN,onepass.geetest.com
+DOMAIN-SUFFIX,114dev.com
