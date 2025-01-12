@@ -50,22 +50,3 @@ DOMAIN-SUFFIX,mob.com
 DOMAIN,ye.dun.163yun.com
 DOMAIN,onepass.geetest.com
 DOMAIN-SUFFIX,114dev.com
-
-#apple 证书屏蔽
-DOMAIN,oscp.apple.com
-DOMAIN,oscp2.appe.com
-DOMAIN,certs.apple.com
-DOMAIN,crl.apple.com
-DOMAIN,crl.entrust.net
-DOMAIN,crl3.digicert.com
-DOMAIN,crl4.digicert.com
-DOMAIN,ocsp.apple.com
-DOMAIN,ocsp.digicert.cn
-DOMAIN,ocsp.digicert.com
-DOMAIN,ocsp.entrust.net
-DOMAIN,ocsp2.apple.com
-DOMAIN,valid.apple.com
-DOMAIN,ppq.apple.com
-DOMAIN,ppq-ext.v.aaplimg.com
-DOMAIN,appattest.apple.com
-DOMAIN,vpp.itunes.apple.com
