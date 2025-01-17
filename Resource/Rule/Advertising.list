@@ -20,33 +20,4 @@ DOMAIN-SUFFIX,pkoplink.com
 DOMAIN-SUFFIX,saxysec.com		
 DOMAIN-SUFFIX,szbdyd.com		
 DOMAIN-SUFFIX,uhabo.com		
-DOMAIN-SUFFIX,xycdn.com		
-
-# 屏蔽运营商获取本机号码自动登录
-# 中国移动
-DOMAIN,config.cmpassport.com
-DOMAIN,www.cmpassport.com
-DOMAIN,wap.cmpassport.com
-DOMAIN,onekey1.cmpassport.com
-DOMAIN,log1.cmpassport.com
-DOMAIN,smsks1.cmpassport.com
-DOMAIN,verify.cmpassport.com
- 
-# 中国联通
-DOMAIN,opencloud.wostore.cn
-DOMAIN,auth.wosms.cn
-DOMAIN,id.mail.wo.cn
-DOMAIN,mdn.open.wo.cn
-DOMAIN,hmrz.wo.cn
-DOMAIN,nishub1.10010.com
-DOMAIN,enrichgw.10010.com
- 
-# 中国电信
-DOMAIN-SUFFIX,id6.me
-DOMAIN,open.e.189.cn
- 
-#sdk
-DOMAIN-SUFFIX,mob.com
-DOMAIN,ye.dun.163yun.com
-DOMAIN,onepass.geetest.com
-DOMAIN-SUFFIX,114dev.com
+DOMAIN-SUFFIX,xycdn.com
