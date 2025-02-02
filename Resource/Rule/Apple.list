@@ -1,8 +1,4 @@
-# DOMAIN-KEYWORD,apple
-# DOMAIN-KEYWORD,apple-
-# DOMAIN-KEYWORD,-apple
-# DOMAIN-KEYWORD,icloud-
-# DOMAIN-KEYWORD,itunes
-# DOMAIN-KEYWORD,mzstatic
 DOMAIN-SUFFIX,apple.com
+DOMAIN-SUFFIX,apple.com.cn
 DOMAIN-SUFFIX,icloud.com
+DOMAIN-SUFFIX,icloud.com.cn
