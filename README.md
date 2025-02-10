@@ -2,7 +2,7 @@
 
 # vpn_tool
 
-# 2024/09/08
+# 2025/02/10
 
 ---------------------------
 
@@ -55,6 +55,8 @@
 ####  <center>[黑科技-长按复制](https://raw.githubusercontent.com/IC58G/vpn_tool/main/Resource/Rewrite/WeiGiegie/Unlock-R.conf)                          [灰科技-长按复制](https://raw.githubusercontent.com/IC58G/vpn_tool/main/Resource/Rewrite//Unlock-S.conf )</center>
 
 ---------------------------
+###### 0x5 2025-02-10 更新优化部分内容 同时更注重隐私
+
 ###### 0x5 2024-09-08 正式去除GEOIP 取消-cn加速服务 优化配置
 
 ###### 0x4 2024-05-04 增加 加速服务 删除所有存档脚本(无法与作者实时同步) 正式启用 -cn 加速服务 增加脚本合集 增加 部分图标
