@@ -8,6 +8,7 @@ DOMAIN-KEYWORD,gemini
 DOMAIN-KEYWORD,generativeai
 DOMAIN-KEYWORD,generativelanguage
 DOMAIN-KEYWORD,githubcopilot
+DOMAIN-KEYWORD,grok
 DOMAIN-KEYWORD,openai
 DOMAIN-KEYWORD,perplexity
 DOMAIN-SUFFIX,bing.com
@@ -16,3 +17,4 @@ DOMAIN-SUFFIX,cursor.sh
 DOMAIN-SUFFIX,mistral.ai
 DOMAIN-SUFFIX,openai.com
 DOMAIN-SUFFIX,whiterabbitneo.com
+DOMAIN-SUFFIX,x.ai
