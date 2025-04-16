@@ -21,7 +21,7 @@ IP-CIDR,224.0.0.0/4
 #IP-CIDR,121.60.0.0/14 api..*.com,no-resolve
 #IP-CIDR,183.0.0.0/10 szminorshort.weixin.qq.com
 #IP-CIDR,221.224.0.0/12 linux.do .*.jinshengwenhua.xyz
-IP-CIDR,61.164.154.0/24 #172appapi.lot-ml.com
+IP-CIDR,61.164.154.0/24
 
 IP-CIDR,1.0.1.0/24
 IP-CIDR,1.0.2.0/23
