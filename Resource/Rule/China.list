@@ -22,6 +22,7 @@ IP-CIDR,224.0.0.0/4
 #IP-CIDR,183.0.0.0/10 szminorshort.weixin.qq.com
 #IP-CIDR,221.224.0.0/12 linux.do .*.jinshengwenhua.xyz
 IP-CIDR,61.164.154.0/24
+IP-CIDR,139.219.234.0/24
 
 IP-CIDR,1.1.8.0/24
 IP-CIDR,1.2.4.0/24
