@@ -1,0 +1,71 @@
+#!name=baby
+#!desc=对【ONE.一个、海角社区】等应用的相关学习探索;
+#!openUrl = https://t.me/Jsforbaby
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1056.png
+#!tag=
+#!icon=https://raw.githubusercontent.com/IC58G/vpn_tool/main/Resource/Icon/baby.png
+#!homepage=https://t.me/Jsforbaby
+#!date = 2025-06-07 02:00:00
+
+[Argument]
+plpl_enable = switch,true,false,tag=啪哩啪哩,desc=关闭开关将不对啪哩啪哩生效
+One_enable = switch,true,false,tag=ONE.一个,desc=关闭开关将不对ONE.一个生效
+ydm2_enable = switch,true,false,tag=淫荡猫、母狗园、DeepSeek,desc=关闭开关将不对淫荡猫、母狗园、DeepSeek生效
+haijiao_enable = switch,true,false,tag=海角社区,desc=关闭开关将不对海角社区生效
+mjgshd_enable = switch,true,false,tag=面具公社,desc=关闭开关将不对面具公社生效
+mdsq_enable = switch,true,false,tag=麻豆社区,desc=关闭开关将不对麻豆社区生效
+Player = select,"Safari","Filebar","SenPlayer","yyb","yybx","Alook","Stay",tag=播放器,desc=选择你要使用的播放器
+one2jj_enable = switch,true,false,tag=无夜视频,desc=关闭开关将不对无夜视频生效
+jtsploon_enable = switch,true,false,tag=加藤视频,desc=关闭开关将不对加藤视频生效
+mr_enable = switch,true,false,tag=Mr.好色,desc=关闭开关将不对Mr.好色生效
+
+[Rewrite]
+# 面具公社去广告
+^https?:\/\/(mfjk|gnjk\d*|gnjk3|jk|buyaoda).+\.com\/request_game\/v3\/game\/list.*$ url reject-dict
+
+# 加藤视频去广告
+^https?://.+/shorter/resource/getAdInfoBySpaceId\?ad - reject
+^https://.+/shorter/resource/bySpaceId\?adSpaceId - reject
+^https://.+/shorter/game/moreList - reject
+
+# 淫荡猫、母狗园、DeepSeek去广告
+^https?:\/\/(?:[a-z0-9-]+\.)?cloudfront\.net\/api\/(?:sys\/partner\/list|activity\/indexActs|sys\/advertisement\/list|sys\/getImgAndVideoCdnList|aibox\/entranceConfig) - reject
+^https?:\/\/snerbnew\.pxyzjmspfl\.work\/api\/(?:sys\/partner\/list|activity\/indexActs|sys\/advertisement\/list|sys\/getImgAndVideoCdnList|aibox\/entranceConfig) - reject
+
+[MITM]
+hostname = apiaws.*.com,apiaws.*.cn,*apiaws*,api.pjq6he.com,api.zbdk8ws.com,api.f38khx.com,api.deyhhc3.com,api.68f4deb.com,api.3459381.com,api.61c76a0.com,api.87735d5.com,api.afe9a49.com,api.c6dd5cc.com,api.2b37894.com,api.35a46dd.com,api.43b8477.com,api.5ce3771.com,api.632d809.com,api.b675211.com,api.a9a2bc4.com,api.8eb269a.com,api.4c86d03.com,api.979bb9e.com,api.988068b.com,api.9cbd862.com,api.c2e777b.com,api.b676039.com,api.ab1e7ee.com,api.5ed249d.com,api.2b1daea.com,api.4934430.com,api.645fb8d.com,api.53cuk7g.com,api.5ebd5d.com,api.em1oifd0.com,api*-uat.*.com,jmtp.*.com,api.k55n2r.com,api.zbdk8ws.com,api.26bb4xt.com,api.vf5x3hv.com,api.fexsqz.com,api.ec53y2t.com,api.j7y675.com,api.pjq6he.com,qqcapi.*.com,www.nj5byj6j.com,api.f38khx.com,api.3459381.com,api.61c76a0.com,api.87735d5.com,api.afe9a49.com,api.c6dd5cc.com,api.2b37894.com,api.35a46dd.com,api.43b8477.com,api.5ce3771.com,api.632d809.com,api.b675211.com,api.a9a2bc4.com,api.8eb269a.com,api.4c86d03.com,api.979bb9e.com,api.988068b.com,api.9cbd862.com,api.c2e777b.com,api.b676039.com,api.ab1e7ee.com,api.5ed249d.com,api.2b1daea.com,api.4934430.com,api.645fb8d.com,api.53cuk7g.com,api.5ebd5d.com,api.em1oifd0.com,api*-uat.*.com,jmtp.*.com,api.k55n2r.com,api.zbdk8ws.com,api.26bb4xt.com,api.vf5x3hv.com,snerbnew.pxyzjmspfl.work,snerbnew.pxyzjmspfl.work:51999,haijiao.com,gnjk.*.com,mfjk.*.com,buyaoda.*.com,jk.*.com,gnjk3.*.com,*.cloudfront.net,cdn.a2pi3.com,xiapo6.com,e6xun6l.wy6z0uq.xyz,ldyc3rs.0mlptkl.xyz,58z8gxu.pzmn7ku.xyz,117.62.22.92:56753,5jsd6q7.jnfkdtm.xyz,yw4pk9h.7fw2snb.xyz,m3pkeg2.v4l0p7y.xyz,ip6vu33.im0684h.xyz,bor4lch.8l6ldmz.xyz,zqlhcn.kl9117.xyz,hkg2zx.stejnu.xyz,zvqldx.xv8gvn.xyz,kuhikr.1t3vwf.xyz,s4788x.taqndh.xyz,xkewutdekf873sr.chairsr.com,103.85.254.233,omfnmh.x2b3w6.xyz,zqlhcn.kl9117.xyz,hkg2zx.stejnu.xyz,zvqldx.xv8gvn.xyz,kuhikr.1t3vwf.xyz,s4788x.taqndh.xyz,xkewutdekf873sr.chairsr.com,103.85.254.233,omfnmh.x2b3w6.xyz,sgwitxgwit231sr.xunwxc.com,zqlhcn.kl9117.xyz,ssgwew231s.uzqew4qi.info,ykofye.qklmoq.xyz,pmmqls.gregdoro.com,103.85.254.233,omfnmh.x2b3w6.xyz,zqlhcn.kl9117.xyz,lieeys42jdi2kd.cx4c5mv7.info,fjboni.jn6588.xyz,rylzit.wqws5z.xyz,riwnkx.sw05uv.xyz,pmmqls.gregdoro.com,103.85.254.233,omfnmh.x2b3w6.xyz,zqlhcn.kl9117.xyz,lieeys42jdi2kd.cx4c5mv7.info,fjboni.jn6588.xyz,rylzit.wqws5z.xyz,riwnkx.sw05uv.xyz,pmmqls.gregdoro.com,103.85.254.233,omfnmh.x2b3w6.xyz,zqlhcn.kl9117.xyz,rylzit.wqws5z.xyz,riwnkx.sw05uv.xyz,bsxqtd.xk8q7w.xyz,grvgdq.81fbg2.xyz,pmmqls.gregdoro.com,103.85.254.233,omfnmh.x2b3w6.xyz,zqlhcn.kl9117.xyz,rylzit.wqws5z.xyz,riwnkx.sw05uv.xyz,bsxqtd.xk8q7w.xyz,grvgdq.81fbg2.xyz,pmmqls.gregdoro.com,103.85.254.233,omfnmh.x2b3w6.xyz,rdxijq.vo9ugl.xyz,bpitbu.ouxf9g.live,tjactb.xk2nsy.live,us6tp7.dkr9cv.live,qsukip.9jts57.live,wkqyx6.qdokqj.live,fqohbx.bkljtx.live,zihjyv.jajrc1.live,y7uyqg.hl8dbl.live,qrdure.youngnoble.cn,kpoe2e.x8w7t3.live,*jttv*,kpoe2e.x8w7t3.live,zihjyv.jajrc1.live,fceyeg.johjxe.com,*.vo9ugl.xyz,zqlhcn.kl9117.xyz,bsxqtd.xk8q7w.xyz,grvgdq.81fbg2.xyz,vcryyw.uc86fy.xyz,xospby.mldo9k.xyz,pmmqls.gregdoro.com,103.85.254.233,roa6fi.lyr6if.live,gp1wpm.xcg3zr.xyz,nfmq0v.lknlqz.xyz,nhppjkb.z5x6pzr.xyz,fwroeor.revxcvx.xyz,uetuys234ls.pbog5txn.app,fwroeor.revxcvx.xyz,hrp27mr.1ugq1uf.xyz,nhppjkb.z5x6pzr.xyz,zd7uwox.8ewxvhz.xyz,xkewutdekf873sr.chairsr.com,5tlsw6r.7n26ytu.xyz
+
+[Script]
+# ========== 啪哩啪哩 ========== https://web.jwybg.com
+http-response ^https:\/\/(?:\S+\/video\/info\/.*\?token=\S+) script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/plpl.js, requires-body=true, timeout=60, tag=提取高清视频 无限看会员视频, argument=enabled={plpl_enable}
+
+# ========== ONE.一个 ========== https://yg.one 
+http-response ^https?:\/\/(api|jmtp)(.*-uat)?\.\w+\.com\/v2.5\/(bootstrap|user\/login|user\/avatarFrame|article\/discovery|navigation|article\/detail|vip\/download|my\/userExtraInfo) script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/One.js, requires-body=true, timeout=60, tag=解锁所有内容(包含点播付费), 去除部分广告, argument=enabled={One_enable}
+
+# ========== 淫荡猫、母狗园、DeepSeek ========== https://dd38dkt7dfvyr.cloudfront.net https://d3lijns9322mkl.cloudfront.net https://d2x03a61ogs2x5.cloudfront.net
+http-request https:\/\/[^\/]+\.cloudfront\.net\/api\/m3u8\/decode\/authPath script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/ydm2.js, timeout=60, tag=解锁会员视频, argument=enabled={ydm2_enable}
+http-response ^https:\/\/(?:[a-zA-Z0-9-]+\.cloudfront\.net|snerbnew\.pxyzjmspfl\.work)(?::\d+)?\/api\/(?:video\/getVideoById|user\/base\/info|community\/dynamic\/dynamicInfo) script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/ydm.js, requires-body=true, timeout=60, tag=解锁付费视频, argument=enabled={ydm2_enable}
+http-request ^https:\/\/snerbnew\.pxyzjmspfl\.work(?::\d+)?\/api\/m3u8\/decode\/authPath script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/ydm2.js, timeout=60, tag=去除弹窗广告, argument=enabled={ydm2_enable}
+
+# ========== 海角社区 ========== https://haijiao.com
+http-response ^https?:\/\/haijiao\.com\/api\/(topic\/\d+|banner\/banner_list)$ script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/haijiao.js, requires-body=true, timeout=60, tag=解锁付费会员视频, argument=enabled={haijiao_enable}
+ 
+# ========== 面具公社 ========== https://xa1jgfbdlwf2ncxq.411108.xyz:8283
+http-response ^https?:\/\/((mfjk|gnjk\d*|buyaoda).*\.com|jk\.bnhwq672q3\.com)\/(playerinfo|api\/home\/popup|api\/get_?advert).*$ script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/lsp/mjgsad.js, requires-body=true, timeout=60, tag=解锁会员, argument=enabled={mjgshd_enable}
+http-response ^https?:\/\/(mfjk|gnjk\d*|buyaoda|gnjk2\.kzfbz|jk\.bnhwq672q3)\..*\.com\/(api\/(comic|video|short_movie_info|novel|gallery|vip|index|video\/info)|request_rust_video\/ai\/init_info).*$ script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/lsp/mjgshd.js, requires-body=true, timeout=60, tag=解锁会员, argument=enabled={mjgshd_enable}
+
+# ========== 麻豆社区 ========== https://d1skbu98kuldnf.cloudfront.net
+http-response ^https://d1skbu98kuldnf.cloudfront.net/api/app/media/play script-path=https://raw.githubusercontent.com/LovedGM/Task/refs/heads/main/md.js, requires-body=true, timeout=10, tag=解锁站内所有付费及会员视频, argument=[{Player}], argument=enabled={mdsq_enable}
+
+# ========== 无夜视频 ========== https://one2jj.com
+http-response ^https?:\/\/((cdn\.a2pi3\.com|xiapo6\.com|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(\/api\/vodapi\.html|\/Vodapi\.html|\/vodapi\.html))$ script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/one2jj.js, requires-body=true, timeout=60, tag=解锁会员, argument=enabled={one2jj_enable}
+
+
+# ========== 加藤视频 ========== https://www.jt10.live
+http-response ^https?:\/\/.+\/shorter\/(video\/longvideoinfo|resource\/adInfoPageList\?adSpaceId|user\/getUser|resource\/getWindowNotice|tabIconConfigView|user\/getVipPvg|video\/home|video\/search).*$ script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/jtsploon.js, requires-body=true, timeout=60, tag=jtsp, argument=[{Player}], argument=enabled={one2jj_enable}
+http-request ^https?://.+\/shorter\/anime\/tbookchapter0\/info\?bookId script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/jtsploon.js, timeout=60, tag=jtsp, argument=[{Player}], argument=enabled={jtsploon_enable}
+
+# ========== Mr.好色 ========== https://d2kz22zwxc5env.cloudfront.net
+ http-response https://((cpmg23|3e8qs).com|[^\/]+\.cloudfront.net)/api/app/mine/info script-path=https://raw.githubusercontent.com/chmg2025/js/refs/heads/main/mr.js, requires-body=true, timeout=60, tag=Mr.好色.会员, argument=enabled={mr_enable}
+ http-response ^https:\/\/((cpmg23|3e8qs)\.com|[^\/]+\.cloudfront\.net)\/api\/app\/vid\/info\?data=.*$ script-path=https://raw.githubusercontent.com/chmg2025/js/refs/heads/main/mr.js, requires-body=true, timeout=60, tag=Mr.好色.视频, argument=enabled={mr_enable}
+ http-response https://((cpmg23|3e8qs).com|[^\/]+\.cloudfront.net)/api/app/ping/domain/h5 script-path=https://raw.githubusercontent.com/chmg2025/js/refs/heads/main/mr.js, requires-body=true, timeout=60, tag=Mr.好色.广告, argument=enabled={mr_enable}
