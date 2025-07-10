@@ -1,11 +1,9 @@
-#A-Z 排序 持续更新 
-
-
 # 哔哩哔哩
 DOMAIN-SUFFIX,bilibili.com
 DOMAIN-SUFFIX,biliapi.net
+DOMAIN-SUFFIX,biliapi.com
 DOMAIN-SUFFIX,bilivideo.com
-IP-CIDR,203.107.1.0/24,no-resolve
+IP-CIDR,203.107.1.0/24
 
 # 快手
 DOMAIN-SUFFIX,ksapisrv.com
@@ -18,11 +16,16 @@ DOMAIN-KEYWORD,api.weibo.
 DOMAIN-SUFFIX,xiaohongshu.com
 
 # 知乎
-IP-CIDR, 103.41.167.0/24,no-resolve
+IP-CIDR,103.41.167.0/24
 DOMAIN-KEYWORD,zhihu
 
 # 字节跳动系列
 DOMAIN-KEYWORD,-normal
 
 # 微信
-DOMAIN-SUFFIX,szextshort.weixin
+IP-CIDR,112.0.0.0/10
+#IP-CIDR,183.0.0.0/10
+#IP-CIDR,119.144.0.0/14
+
+# 闲鱼
+IP-CIDR,59.82.0.0/16

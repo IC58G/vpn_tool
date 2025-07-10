@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        const EXACT_HOUR_URL = "https://time.is";
+        const NON_EXACT_HOUR_URL = "https://t.me/TmeNu11";
+        const now = new Date();
+        const minutes = now.getMinutes();
+        const isExactHour = minutes % 10 === 0;
+        const targetUrl = isExactHour ? EXACT_HOUR_URL : NON_EXACT_HOUR_URL;
+        window.location.href = targetUrl;
+    </script>
+</body>
+</html>

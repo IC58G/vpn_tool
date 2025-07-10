@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script>
+        const currentPath = window.location.pathname;
+        const REDIRECT_SITE = "404.html";
+
+        if (currentPath === "/" || currentPath === "/index.html") {
+            const chineseSearchEngines = [
+                "https://www.baidu.com",
+                "https://www.so.com",
+                "https://www.sogou.com",
+                "https://m.sm.cn",
+                "https://www.toutiao.com",
+                "https://www.zhihu.com/search",
+            ];
+
+            const foreignSearchEngines = [
+                "https://www.google.com",
+                "https://www.bing.com",
+                "https://search.yahoo.com",
+                "https://duckduckgo.com",
+                "https://www.yandex.com",
+                "https://search.brave.com",
+            ];
+
+            const chineseVideoSites = [
+                "https://www.iqiyi.com",
+                "https://v.qq.com",
+                "https://www.youku.com",
+                "https://www.mgtv.com",
+                "https://tv.sohu.com",
+            ];
+
+            const foreignVideoSites = [
+                "https://www.netflix.com",
+                "https://www.primevideo.com",
+                "https://www.disneyplus.com",
+                "https://www.max.com",
+                "https://www.hulu.com",
+            ];
+
+            function detectChineseIP() {
+                const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                return timezone === "Asia/Hong_Kong";
+            }
+
+            async function checkIPLocation() {
+                try {
+                    const response = await fetch("https://ipapi.co/json/");
+                    const data = await response.json();
+                    return data.country_code === "HK";
+                } catch (error) {
+                    return detectChineseIP();
+                }
+            }
+
+            function redirectToTimeBasedSite(isChineseIP) {
+                const now = new Date();
+                const minutes = now.getMinutes();
+                const searchEngineTimes = [0, 10, 20, 30, 40, 50];
+                const isSearchEngineTime = searchEngineTimes.includes(minutes);
+
+                if (isSearchEngineTime) {
+                    const searchEngines = isChineseIP ? chineseSearchEngines : foreignSearchEngines;
+                    let engineIndex = 0;
+
+                    if (minutes === 0) engineIndex = 0;
+                    else if (minutes === 10) engineIndex = 1;
+                    else if (minutes === 20) engineIndex = 2;
+                    else if (minutes === 30) engineIndex = 3;
+                    else if (minutes === 40) engineIndex = 4;
+                    else if (minutes === 50) engineIndex = 5;
+
+                    window.location.replace(searchEngines[engineIndex]);
+                } else {
+                    const videoSites = isChineseIP ? chineseVideoSites : foreignVideoSites;
+                    const randomIndex = Math.floor(Math.random() * videoSites.length);
+                    window.location.replace(videoSites[randomIndex]);
+                }
+            }
+
+            const timeoutPromise = new Promise(resolve => {
+                setTimeout(() => resolve(detectChineseIP()), 2000);
+            });
+
+            Promise.race([checkIPLocation(), timeoutPromise]).then(isChineseIP => {
+                redirectToTimeBasedSite(isChineseIP);
+            });
+        }
+        else if (currentPath.startsWith("/Resource") || currentPath.startsWith("/Tool")) {
+        }
+        else {
+            window.location.replace(REDIRECT_SITE);
+        }
+    </script>
+</head>
+<body></body>
+</html>
